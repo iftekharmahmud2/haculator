@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Haculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <canvas id="matrixCanvas"></canvas>
+
+    <div class="calculator-glass">
+        <div class="app-name">Haculator</div>
+
+        <input type="text" id="display" readonly placeholder="0">
+
+        <div class="buttons">
+            <button class="btn-top" onclick="clearDisplay()" data-key="Escape">AC</button>
+            <button class="btn-top" onclick="deleteLast()" data-key="Backspace">DEL</button>
+            <button class="btn-top" onclick="appendOperator('%')" data-key="%">%</button>
+            <button class="btn-op" onclick="appendOperator('÷')" data-key="/">÷</button>
+
+            <button class="btn-num" onclick="appendNumber('7')" data-key="7">7</button>
+            <button class="btn-num" onclick="appendNumber('8')" data-key="8">8</button>
+            <button class="btn-num" onclick="appendNumber('9')" data-key="9">9</button>
+            <button class="btn-op" onclick="appendOperator('×')" data-key="*">×</button>
+
+            <button class="btn-num" onclick="appendNumber('4')" data-key="4">4</button>
+            <button class="btn-num" onclick="appendNumber('5')" data-key="5">5</button>
+            <button class="btn-num" onclick="appendNumber('6')" data-key="6">6</button>
+            <button class="btn-op" onclick="appendOperator('-')" data-key="-">-</button>
+
+            <button class="btn-num" onclick="appendNumber('1')" data-key="1">1</button>
+            <button class="btn-num" onclick="appendNumber('2')" data-key="2">2</button>
+            <button class="btn-num" onclick="appendNumber('3')" data-key="3">3</button>
+            <button class="btn-op" onclick="appendOperator('+')" data-key="+">+</button>
+
+            <button class="btn-num btn-zero" onclick="appendNumber('0')" data-key="0">0</button>
+            <button class="btn-num" onclick="appendNumber('.')" data-key=".">.</button>
+            <button class="btn-op" onclick="calculateResult()" data-key="Enter">=</button>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; GitHub: IftekharMahmud2
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

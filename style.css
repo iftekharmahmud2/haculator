@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;500;700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden; /* Keeps the page from scrolling */
+    display: flex;
+    flex-direction: column; /* Stacks items (Calc on top, Copyright below) */
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+}
+
+canvas {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* --- LUCID GLASS CONTAINER --- */
+.calculator-glass {
+    width: 350px;
+    padding: 25px;
+    border-radius: 40px;
+    
+    /* THE LUCID EFFECT */
+    background: rgba(20, 20, 20, 0.6); 
+    backdrop-filter: blur(20px); 
+    -webkit-backdrop-filter: blur(20px);
+    
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    border-left: 1px solid rgba(255, 255, 255, 0.4);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    
+    /* Ensure it doesn't touch the footer */
+    margin-bottom: 20px;
+}
+
+/* Header Style */
+.app-name {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+#display {
+    width: 100%;
+    height: 80px;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-size: 60px;
+    font-weight: 300;
+    text-align: right;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+#display::placeholder { color: transparent; }
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+button {
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    transition: 0.1s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-tap-highlight-color: transparent;
+    box-shadow: inset 0 1px 1px rgba(255,255,255,0.2);
+}
+
+/* Colors */
+.btn-num {
+    background-color: rgba(51, 51, 51, 0.9);
+    color: white;
+}
+.btn-num:active { background-color: rgba(80, 80, 80, 0.9); }
+
+.btn-top {
+    background-color: rgba(165, 165, 165, 0.9);
+    color: black;
+    font-size: 24px;
+    font-weight: 500;
+}
+.btn-top:active { background-color: rgba(210, 210, 210, 0.9); }
+
+.btn-op {
+    background-color: rgba(255, 159, 10, 0.95);
+    color: white;
+    font-size: 34px;
+    padding-bottom: 4px;
+}
+.btn-op:active { background-color: rgba(255, 200, 50, 0.95); }
+
+.btn-zero {
+    grid-column: span 2;
+    width: 100%;
+    border-radius: 40px;
+    justify-content: flex-start;
+    padding-left: 28px;
+    box-sizing: border-box;
+}
+
+/* --- COPYRIGHT FOOTER --- */
+.footer {
+    /* Changed from fixed position to standard flow */
+    position: relative; 
+    width: auto;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    font-family: monospace;
+    font-size: 14px;
+    z-index: 20;
+    pointer-events: none;
+    text-shadow: 0 2px 4px #000;
+}
+
+@media (max-width: 400px) {
+    .calculator-glass {
+        width: 88%;
+        padding: 20px;
+    }
+    button {
+        height: 62px;
+        width: 62px;
+        font-size: 26px;
+    }
+}
